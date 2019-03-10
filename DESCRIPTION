@@ -1,0 +1,18 @@
+Package: DemoPkg
+Type: Package
+Title: Demo Package
+Version: 0.1.0
+Author: Bart Verweire
+Maintainer: The package maintainer <bart.verweire@gmail.com>
+Description: Just a demo package to test OpenCPU.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    dplyr,
+    plotly,
+    magrittr
+Suggests: 
+    testthat
+RoxygenNote: 6.1.1
