@@ -60,10 +60,12 @@
                             "max" : parseInt($("#max").val()),
                             "sd" : parseInt($("#sd").val())
                           }, 
-                          function(data) {
+                          function(session) {
                             console.log("plotly request end");
                             console.log(new Date());
-                            console.log(data.getLoc());
+                            console.log(session.getLoc());
+
+                            $("plotlyoutput").attr('src', session.getFileURL("mymap.html"))
                           }
                 );
             });
@@ -110,7 +112,7 @@
           <button id="plotly">Plotly</button>
         </p>
 
-        <div id="plotlyOutput"></div>
+        <iframe id="plotlyOutput"></iframe>
     </div>
 
 
