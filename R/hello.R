@@ -33,6 +33,9 @@ get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
     geom_point()
 }
 
+#' @import ggplot2
+#' @import plotly
+#' @export
 get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
 
