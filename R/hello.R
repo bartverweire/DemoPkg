@@ -54,5 +54,5 @@ get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
   p <- ggplot(df, aes(x, y)) +
     geom_point()
 
-  htmlwidgets::saveWidget(ggplotly(p), "plotly.html", selfcontained = FALSE)
+  htmlwidgets::saveWidget(ggplotly(p), "plotly.html", selfcontained = TRUE)
 }
