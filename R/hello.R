@@ -28,6 +28,7 @@ get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
   y <- dnorm(x, mean = 0, sd = sd)
 
   df <- data.frame(x, y)
+  print(head(df))
   ggplot(df, aes(x, y)) +
     geom_point()
 }
