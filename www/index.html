@@ -19,7 +19,8 @@
                     console.log(new Date());
                     console.log(data);
 
-                    $.get(data.getLoc() + "R/.val"), function(result) {
+                    $.get(data.getLoc() + "R/.val/json"), function(result) {
+                      console.log("json get val result");
                       console.log(result);
                     }
 
