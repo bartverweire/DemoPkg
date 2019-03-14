@@ -26,7 +26,14 @@
             $("#plot").click(function() {
                 console.log("plot request start");
                 console.log(new Date());
-                ocpu.call("get_plot", {}, function(data) {
+                ocpu.call("get_plot", 
+                          {
+                            "n" : $("#n").val(),
+                            "min" : $("#min").val(),
+                            "max" : $("#max").val(),
+                            "sd" : $("#sd").val()
+                          }, 
+                          function(data) {
                     console.log("plot request end");
                     console.log(new Date());
                     console.log(data.getLoc());
@@ -55,6 +62,16 @@
 
         <p id="jsonOutput"></p>
 
+        <p>
+            <label>Number of points</label>
+            <input id="n" type="number" value="101"/>
+            <label>Minimum</label>
+            <input id="min" type="number" value=-10/>
+            <label>Maximum</label>
+            <input id="max" type="number" value="10"/>
+            <label>Standard Deviation</label>
+            <input id="sd" type="number" value="2"/>
+        </p>
         <p>
             <button id="plot">Plot</button>
         </p>
