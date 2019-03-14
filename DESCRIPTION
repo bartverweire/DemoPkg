@@ -12,7 +12,8 @@ Imports:
     ggplot2,
     dplyr,
     plotly,
-    magrittr
+    magrittr,
+    htmlwidgets
 Suggests: 
     testthat
 RoxygenNote: 6.1.1

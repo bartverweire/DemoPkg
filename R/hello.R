@@ -35,6 +35,7 @@ get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
 
 #' @import ggplot2
 #' @import plotly
+#' @import htmlwidgets
 #' @export
 get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
@@ -53,5 +54,5 @@ get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
   p <- ggplot(df, aes(x, y)) +
     geom_point()
 
-  ggplotly(p)
+  htmlwidgets::saveWidget(as.widget(p), "plotly.html", selfcontained = TRUE)
 }
