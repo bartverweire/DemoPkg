@@ -41,16 +41,31 @@
                             "sd" : parseInt($("#sd").val())
                           }, 
                           function(data) {
-                    console.log("plot request end");
-                    console.log(new Date());
-                    console.log(data.getLoc());
+                            console.log("plot request end");
+                            console.log(new Date());
+                            console.log(data.getLoc());
 
-                    $("#plotOutput").attr({"src": data.getLoc() + "graphics/last/png"});
-                });
-                // ocpu.rpc("get_plot", {}, function(data) {
-                //     console.log("plot request");
-                //     console.log(data);
-                // });
+                            $("#plotOutput").attr({"src": data.getLoc() + "graphics/last/png"});
+                          }
+                );
+            });
+
+            $("#plotly").click(function() {
+                console.log("plotly request start");
+                console.log(new Date());
+                ocpu.call("get_plotly", 
+                          {
+                            "n" : parseInt($("#n").val()),
+                            "min" : parseInt($("#min").val()),
+                            "max" : parseInt($("#max").val()),
+                            "sd" : parseInt($("#sd").val())
+                          }, 
+                          function(data) {
+                            console.log("plotly request end");
+                            console.log(new Date());
+                            console.log(data.getLoc());
+                          }
+                );
             });
         })
     </script>
@@ -90,6 +105,12 @@
         </p>
 
         <img id="plotOutput" src="" height="300px" width="300px"/>
+        
+        <p>
+          <button id="plotly">Plotly</button>
+        </p>
+
+        <div id="plotlyOutput"></div>
     </div>
 
 

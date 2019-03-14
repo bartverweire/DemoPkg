@@ -32,3 +32,23 @@ get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
   ggplot(df, aes(x, y)) +
     geom_point()
 }
+
+get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
+  if (!requireNamespace("ggplot2", quietly = TRUE)) {
+
+  }
+
+  if (!requireNamespace("plotly", quietly = TRUE)) {
+
+  }
+
+  x <- seq(min, max, length.out = n)
+  y <- dnorm(x, mean = 0, sd = sd)
+
+  df <- data.frame(x, y)
+  print(head(df))
+  p <- ggplot(df, aes(x, y)) +
+    geom_point()
+
+  ggplotly(p)
+}
