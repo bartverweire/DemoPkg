@@ -14,10 +14,14 @@
             $("#json").click(function() {
                 console.log("json request start");
                 console.log(new Date());
-                ocpu.call("hello", {}, function(data) {
+                ocpu.rpc("hello", {}, function(data) {
                     console.log("json request end");
                     console.log(new Date());
                     console.log(data);
+
+                    $.get(data.getLoc() + ".val"), function(result) {
+                      console.log(result);
+                    }
 
                     $("#jsonOutput").text(data);
                 });
