@@ -28,10 +28,10 @@
                 console.log(new Date());
                 ocpu.call("get_plot", 
                           {
-                            "n" : $("#n").val(),
-                            "min" : $("#min").val(),
-                            "max" : $("#max").val(),
-                            "sd" : $("#sd").val()
+                            "n" : parseInt($("#n").val()),
+                            "min" : parseInt($("#min").val()),
+                            "max" : parseInt($("#max").val()),
+                            "sd" : parseInt($("#sd").val())
                           }, 
                           function(data) {
                     console.log("plot request end");
