@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OpenCPU test application</title>
+
+    <script type="text/javascript" src="opencpu/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="opencpu/resize.js"></script>
+    <script type="text/javascript" src="opencpu/opencpu-0.4.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            ocpu.seturl("//192.168.0.11/ocpu/library/DemoPkg/R") ;
+            
+            $("#json").click(function() {
+                console.log("json request start");
+                console.log(new Date());
+                ocpu.rpc("hello", {}, function(data) {
+                    console.log("json request end");
+                    console.log(new Date());
+                    console.log(data);
+
+                    $("#jsonOutput").text(data);
+                });
+            });
+
+            $("#plot").click(function() {
+                console.log("plot request start");
+                console.log(new Date());
+                ocpu.call("get_plot", {}, function(data) {
+                    console.log("plot request end");
+                    console.log(new Date());
+                    console.log(data.getLoc());
+
+                    $("#plotOutput").attr({"src": data.getLoc() + "graphics/last/png"});
+                });
+                // ocpu.rpc("get_plot", {}, function(data) {
+                //     console.log("plot request");
+                //     console.log(data);
+                // });
+            });
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="helpdiv">
+        <h1>OpenCPU test Application using jQuery</h1>
+
+        <p>This is an example <a href="http://opencpu.org" target="_blank">OpenCPU</a> 
+
+        <p>
+            <button id="json">Json</button>
+        </p>
+
+        <p id="jsonOutput"></p>
+
+        <p>
+            <button id="plot">Plot</button>
+        </p>
+
+        <img id="plotOutput" src="" height="300px" width="300px"/>
+    </div>
+
+
+</body>
+
+</html>
