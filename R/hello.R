@@ -14,11 +14,24 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 #' @export
-hello <- function() {
-  c("Hello, world!","Hello again")
+hello <- function(n) {
+  rep("Hello, world!", n)
 }
 
-#' @import ggplot2
+#' @export
+get_text <- function(text, n) {
+  rep(text, n)
+}
+
+#' @export
+get_df <- function(nrow, ncol) {
+  df <- as.data.frame(matrix(runif(nrow * ncol, 1, 10), nrow, ncol))
+  colnames(df) <- LETTERS(1:ncol)
+
+  df
+}
+
+#' @importFrom ggplot2 ggplot geom_point
 #' @export
 get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
@@ -33,8 +46,8 @@ get_plot <- function(n = 11, min = -5, max = 5, sd = 2) {
     geom_point()
 }
 
-#' @import ggplot2
-#' @import plotly
+#' @importFrom ggplot2 ggplot geom_point
+#' @importFrom plotly ggplotly
 #' @import htmlwidgets
 #' @export
 get_plotly <- function(n = 11, min = -5, max = 5, sd = 2) {
