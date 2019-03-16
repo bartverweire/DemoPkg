@@ -26,7 +26,7 @@ get_text <- function(text, n) {
 #' @export
 get_df <- function(nrow, ncol) {
   df <- as.data.frame(matrix(runif(nrow * ncol, 1, 10), nrow, ncol))
-  colnames(df) <- LETTERS(1:ncol)
+  colnames(df) <- LETTERS[1:ncol]
 
   df
 }
