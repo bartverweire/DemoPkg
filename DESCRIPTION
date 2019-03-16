@@ -13,7 +13,8 @@ Imports:
     dplyr,
     plotly,
     magrittr,
-    htmlwidgets
+    htmlwidgets,
+    pandoc
 Suggests: 
     testthat
 RoxygenNote: 6.1.1
